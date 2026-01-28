@@ -32,11 +32,13 @@ builds:
 
 archives:
   - id: default
-    format: tar.gz
+    formats:
+      - tar.gz
     name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
     format_overrides:
       - goos: windows
-        format: zip
+        formats:
+          - zip
 
 checksum:
   name_template: "checksums.txt"
@@ -65,14 +67,14 @@ brews:
     install: |
       bin.install "agen"
 
-scoop:
-  name: agen
-  repository:
-    owner: eshanized
-    name: scoop-bucket
-  homepage: "https://github.com/eshanized/agen"
-  description: "AI Agent Template Manager for multiple IDEs"
-  license: "MIT"
+scoops:
+  - name: agen
+    repository:
+      owner: eshanized
+      name: scoop-bucket
+    homepage: "https://github.com/eshanized/agen"
+    description: "AI Agent Template Manager for multiple IDEs"
+    license: "MIT"
 
 nfpms:
   - id: agen
@@ -102,6 +104,6 @@ aurs:
 release:
   github:
     owner: eshanized
-    name: agen
+    name: AGEN
   draft: false
   prerelease: auto

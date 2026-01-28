@@ -112,7 +112,7 @@ func runDoctor(cmd *cobra.Command, args []string) error {
 	red := color.New(color.FgRed)
 
 	cyan.Println("\n🩺 AGEN Doctor")
-	fmt.Println("Running diagnostic checks...\n")
+	fmt.Println("Running diagnostic checks...")
 
 	issues := 0
 	fixed := 0

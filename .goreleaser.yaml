@@ -13,7 +13,7 @@ before:
 
 builds:
   - id: agen
-    main: ./cmd/agen
+    main: ./cmd/agen/main.go
     binary: agen
     env:
       - CGO_ENABLED=0

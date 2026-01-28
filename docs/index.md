@@ -4,9 +4,9 @@ hide:
   - toc
 ---
 
-# <div align="center"> <img src="assets/logo.svg" width="200" style="margin-bottom: 1rem;"> <br> AGEN </div>
+# <div align="center" markdown="1"> ![AGEN Logo](assets/logo.svg){ width="200" style="margin-bottom: 1rem;" } <br> AGEN </div>
 
-<div align="center">
+<div align="center" markdown="1">
   <h2 style="margin-top: 0; font-weight: 300;">The Universal AI Agent Manager</h2>
   <p style="font-size: 1.2rem; color: var(--md-default-fg-color--light); max-width: 600px; margin: 0 auto;">
     Standardize, share, and manage your AI coding assistants across any IDE.

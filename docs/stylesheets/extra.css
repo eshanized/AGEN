@@ -34,13 +34,13 @@
 /* Typography */
 body,
 input {
-    font-family: 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+    font-family: 'Fira Code', 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
 }
 
 code,
 kbd,
 pre {
-    font-family: 'JetBrains Mono', 'Fira Code', Consolas, monospace;
+    font-family: 'Fira Code', 'JetBrains Mono', Consolas, monospace;
 }
 
 /* Hero Section / Landing Page */

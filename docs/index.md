@@ -1,26 +1,82 @@
+---
+hide:
+  - navigation
+---
+
 # AGEN
 
-**A cross-platform CLI tool for managing AI agent templates.**
+<div align="center">
 
-AGEN helps you quickly scaffold and manage AI agent configurations for multiple IDEs, including **Antigravity** (Claude Code), **Cursor**, **Windsurf**, and **Zed**.
+<img src="https://raw.githubusercontent.com/eshanized/agen/main/assets/logo.png" alt="AGEN Logo" width="200" />
+
+**The Universal AI Agent Manager**
 
 [![Go Version](https://img.shields.io/badge/Go-1.22+-00ADD8?style=flat&logo=go)](https://golang.org)
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/eshanized/agen)](https://github.com/eshanized/agen/releases)
 
-## Key Features
+[Get Started](getting-started.md){ .md-button .md-button--primary }
+[View Commands](commands.md){ .md-button }
 
-- **🎯 Multi-IDE Support**: Auto-detects and configures for Antigravity, Cursor, Windsurf, Zed
-- **📦 Embedded Templates**: Works offline with built-in agent templates
-- **🔄 Smart Updates**: Conflict resolution when updating templates you've modified
-- **🔍 Fuzzy Search**: Find agents and skills with `agen search`
-- **📊 Health Dashboard**: `agen health` shows project status and recommendations
-- **🧪 Playground**: Test agents in temporary projects with `agen playground`
-- **📁 Profiles**: Save and reuse agent configurations across projects
-- **🔐 Verification**: Built-in security, lint, UX, and SEO checks
+</div>
 
-## Why AGEN?
+---
 
-Setting up AI agent behaviors (system prompts, skills, workflows) is often a manual process that varies by IDE. AGEN unifies this into a single CLI tool that adapts to your environment.
+## What is AGEN?
 
-Whether you need a **Frontend React Expert** for Cursor or a **Go Backend Specialist** for Antigravity, AGEN has you covered with a unified interface.
+**AGEN** (Agent Generation Engine) is the missing link between your AI coding assistant and your project's needs. It manages **Agent Templates**—structured prompts, skills, and workflows—and adapts them to your specific IDE.
+
+Whether you use **Cursor**, **Windsurf**, **Antigravity**, or **Zed**, AGEN ensures your AI assistant behaves exactly how you need it to.
+
+<div class="grid cards" markdown>
+
+-   :material-robot: **20+ Specialist Agents**
+    From Frontend Experts to Security Auditors, switch personas instantly.
+
+-   :material-puzzle: **Modular Skills**
+    Mix and match capabilities like Docker, React, or Penetration Testing.
+
+-   :material-laptop: **Multi-IDE Support**
+    One configuration, tailored output for Cursor, Windsurf, Zed, and more.
+
+-   :material-check-decagram: **Health & Verify**
+    Ensure your project's agent configuration is valid and up-to-date.
+
+</div>
+
+## How it Works
+
+```mermaid
+graph LR
+    A[AGEN CLI] -->|Init| B{IDE Detection}
+    B -->|Cursor| C[.cursorrules]
+    B -->|Windsurf| D[.windsurfrules]
+    B -->|Antigravity| E[.agent/ folder]
+    B -->|Zed| F[.zed/ folder]
+    
+    style A fill:#00ADD8,stroke:#333,stroke-width:2px,color:#fff
+```
+
+## Quick Start
+
+1.  **Install**
+    ```bash
+    brew install eshanized/tap/agen
+    ```
+
+2.  **Initialize**
+    ```bash
+    cd my-project
+    agen init
+    ```
+
+3.  **Code**
+    Open your IDE. Your AI assistant now knows exactly how to behave.
+
+## Why use AGEN?
+
+!!! quote "The Problem"
+    Every AI IDE has a different way of configuring "System Prompts" or "Rules". Sharing these configurations across teams or projects is a manual, error-prone mess of copy-pasting markdown files.
+
+!!! success "The AGEN Solution"
+    AGEN treats AI prompts as **dependencies**. You define *what* you need ("Frontend Agent" + "Tailwind Skill"), and AGEN compiles it for *where* you work.

@@ -6,6 +6,8 @@ site_url: https://eshanized.github.io/agen/
 repo_name: eshanized/agen
 repo_url: https://github.com/eshanized/agen
 
+docs_dir: docs
+
 theme:
   name: material
   logo: assets/logo.svg
@@ -13,8 +15,6 @@ theme:
   icon:
     repo: fontawesome/brands/github
   features:
-    - navigation.tabs
-    - navigation.tabs.sticky
     - navigation.sections
     - navigation.expand
     - navigation.path

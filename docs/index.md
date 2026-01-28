@@ -4,7 +4,7 @@ hide:
   - toc
 ---
 
-# <div align="center" markdown="1"> ![AGEN Logo](assets/logo.svg){ width="200" style="margin-bottom: 1rem;" } <br> AGEN </div>
+# <div align="center" markdown="1"> ![AGEN Logo](assets/favicon.svg){ width="200" style="margin-bottom: 1rem;" } <br> AGEN </div>
 
 <div align="center" markdown="1">
   <h2 style="margin-top: 0; font-weight: 300;">The Universal AI Agent Manager</h2>

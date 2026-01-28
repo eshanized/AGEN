@@ -5,13 +5,19 @@ Comprehensive guide to all `agen` CLI commands, flags, and usage examples.
 ## Global Flags
 
 These flags are available for all commands:
-- `-v, --verbose`: Enable verbose output for debugging.
-- `--no-color`: Disable colored output (useful for scripts).
-- `--version`: Show version information.
+
+| Flag | Description |
+|------|-------------|
+| `-v, --verbose` | Enable verbose output for debugging |
+| `--no-color` | Disable colored output (useful for scripts) |
+| `--version` | Show version information |
+| `-h, --help` | Show help for any command |
 
 ---
 
-## `agen init`
+## Core Commands
+
+### `agen init`
 
 Initialize agent templates in the current or specified project directory. This is the main bootstrapping command.
 
@@ -21,13 +27,15 @@ agen init [path] [flags]
 ```
 
 **Flags:**
-- `-i, --ide string`: Force specific IDE configuration.
-    - Supported values: `antigravity`, `cursor`, `windsurf`, `zed`
-- `-a, --agents strings`: Comma-separated list of agents to install (e.g., `frontend,backend`).
-- `-s, --skills strings`: Comma-separated list of skills to install (e.g., `docker,git`).
-- `-f, --force`: Overwrite existing files without prompting.
-- `--dry-run`: Show what would be done without making legitimate changes.
-- `--no-wizard`: Skip the interactive TUI wizard even if no flags are provided (defaults to Antigravity if no IDE detected).
+
+| Flag | Description |
+|------|-------------|
+| `-i, --ide string` | Force specific IDE (antigravity, cursor, windsurf, zed) |
+| `-a, --agents strings` | Comma-separated list of agents to install |
+| `-s, --skills strings` | Comma-separated list of skills to install |
+| `-f, --force` | Overwrite existing files without prompting |
+| `--dry-run` | Show what would be done without making changes |
+| `--no-wizard` | Skip the interactive TUI wizard |
 
 **Examples:**
 ```bash
@@ -39,11 +47,14 @@ agen init --ide cursor --agents frontend,backend --skills react,node --force
 
 # Just verify what would happen
 agen init --dry-run
+
+# Initialize a specific directory
+agen init /path/to/project --ide antigravity
 ```
 
 ---
 
-## `agen list`
+### `agen list`
 
 List all available templates that can be installed.
 
@@ -53,16 +64,48 @@ agen list [flags]
 ```
 
 **Flags:**
-- `-a, --agents`: Only list agents.
-- `-s, --skills`: Only list skills.
-- `-w, --workflows`: Only list workflows.
-- `--json`: Output in JSON format (useful for scripting/tools).
+
+| Flag | Description |
+|------|-------------|
+| `-a, --agents` | Only list agents |
+| `-s, --skills` | Only list skills |
+| `-w, --workflows` | Only list workflows |
+| `--json` | Output in JSON format |
+
+**Examples:**
+```bash
+# List everything
+agen list
+
+# List only agents
+agen list --agents
+
+# Export as JSON for scripting
+agen list --json > templates.json
+```
 
 ---
 
-## `agen health`
+### `agen status`
 
-Analyze the current project's configuration health. Checks for proper installation, file integrity, and missing recommended agents based on project type.
+Check the installation status of AGEN in the current directory.
+
+**Usage:**
+```bash
+agen status
+```
+
+**Output includes:**
+- Detected IDE
+- Installed agents
+- Installed skills
+- Configuration health
+
+---
+
+### `agen health`
+
+Analyze the current project's configuration health with recommendations.
 
 **Usage:**
 ```bash
@@ -71,24 +114,19 @@ agen health [path]
 
 **Checks Performed:**
 - **IDE Config**: Validates `.agent/`, `.cursorrules`, etc.
-- **Version Status**: Checks if templates are up-to-date with the binary.
-- **Local Modifications**: Detects if you've customized templates.
-- **Recommendations**: Scans project files (`package.json`, `go.mod`, etc.) to recommend relevant agents (e.g., suggesting `mobile-developer` for React Native projects).
+- **Version Status**: Checks if templates are up-to-date
+- **Local Modifications**: Detects customized templates
+- **Recommendations**: Suggests agents based on project type
 
----
-
-## `agen status`
-
-Check the installation status of AGEN in the current directory. Similar to `health` but more focused on simple verification of installed components.
-
-**Usage:**
+**Example:**
 ```bash
-agen status
+agen health
+# Shows health score and recommendations
 ```
 
 ---
 
-## `agen search`
+### `agen search`
 
 Perform a fuzzy search across all agents, skills, and workflows.
 
@@ -98,21 +136,25 @@ agen search <query> [flags]
 ```
 
 **Flags:**
-- `-n, --limit int`: Maximum number of results to show (default 10).
+
+| Flag | Description |
+|------|-------------|
+| `-n, --limit int` | Maximum number of results (default 10) |
 
 **Examples:**
 ```bash
-agen search security  # Finds security-auditor, penetration-tester, etc.
-agen search react     # Finds frontend-specialist, react-skills
+agen search security    # Finds security-auditor, penetration-tester
+agen search react       # Finds frontend-specialist, react-related skills
+agen search test -n 20  # Show up to 20 results
 ```
 
 ---
 
-## `agen update`
+## Update Commands
 
-Update installed templates to the latest version available in the `agen` binary. 
+### `agen update`
 
-**Smart Updates**: AGEN attempts to respect your local changes. If a file has been modified locally, it will skip updating it unless you force it.
+Update installed templates to the latest version from the binary.
 
 **Usage:**
 ```bash
@@ -120,71 +162,275 @@ agen update [flags]
 ```
 
 **Flags:**
-- `-f, --force`: Overwrite local modifications with the latest version.
-- `--dry-run`: Show what files would be updated.
+
+| Flag | Description |
+|------|-------------|
+| `-f, --force` | Overwrite local modifications |
+| `--dry-run` | Show what files would be updated |
+
+**Smart Updates:** AGEN respects local changes. Modified files are skipped unless `--force` is used.
 
 ---
 
-## `agen upgrade`
+### `agen upgrade`
 
-Upgrade the `agen` binary itself to the latest version from GitHub Releases.
+Upgrade the `agen` binary itself to the latest version.
 
 **Usage:**
 ```bash
 agen upgrade
 ```
 
----
-
-## `agen verify`
-
-Run a suite of verification scripts to ensure your project adheres to the standards defined in the templates.
-
-**Usage:**
-```bash
-agen verify
-```
+Downloads and installs the latest release from GitHub.
 
 ---
 
-## `agen profile`
+## Profile Commands
 
-Manage configuration profiles. Profiles allow you to save a specific combination of agents, skills, and IDE settings to reuse later.
+### `agen profile`
+
+Manage configuration profiles for reuse across projects.
 
 **Subcommands:**
 
-### `save`
-Save current project configuration as a profile.
+| Command | Description |
+|---------|-------------|
+| `save <name>` | Save current config as a profile |
+| `load <name>` | Apply a saved profile |
+| `list` | List all saved profiles |
+| `delete <name>` | Delete a saved profile |
+| `export <name>` | Export profile as JSON (stdout) |
+| `import <file>` | Import profile from JSON file |
+
+**Examples:**
 ```bash
-agen profile save <name>
+# Save current configuration
+agen profile save frontend-stack
+
+# Load profile into new project
+agen profile load frontend-stack
+
+# Export for sharing
+agen profile export frontend-stack > frontend.json
+
+# Import shared profile
+agen profile import frontend.json
 ```
 
-### `load`
-Apply a saved profile to the current project.
+See [Profiles](profiles.md) for detailed documentation.
+
+---
+
+## Team Commands
+
+### `agen team`
+
+Manage team collaboration and shared configurations.
+
+**Subcommands:**
+
+| Command | Description |
+|---------|-------------|
+| `init <name>` | Initialize team configuration |
+| `require <type> <name>` | Add required agent/skill |
+| `remove <type> <name>` | Remove requirement |
+| `lock <name> <version>` | Lock template version |
+| `unlock <name>` | Remove version lock |
+| `sync` | Sync project with team config |
+| `validate` | Validate against team requirements |
+| `config <key> <value>` | Modify team settings |
+
+**Examples:**
 ```bash
-agen profile load <name>
+# Initialize team config
+agen team init my-team
+
+# Require security-auditor for all team members
+agen team require agent security-auditor
+
+# Sync project with team requirements
+agen team sync
+
+# Validate project meets team requirements
+agen team validate --strict
 ```
 
-### `list`
-List all saved profiles.
+See [Team Collaboration](team.md) for detailed documentation.
+
+---
+
+## Plugin Commands
+
+### `agen plugin`
+
+Manage AGEN plugins.
+
+**Subcommands:**
+
+| Command | Description |
+|---------|-------------|
+| `install <source>` | Install plugin from GitHub/URL/path |
+| `uninstall <name>` | Remove installed plugin |
+| `list` | List installed plugins |
+| `info <name>` | Show plugin details |
+| `create <name>` | Create new plugin project |
+
+**Examples:**
 ```bash
-agen profile list
+# Install from GitHub
+agen plugin install github.com/user/agen-security-pack
+
+# Install from local path
+agen plugin install /path/to/my-plugin
+
+# Create new plugin
+agen plugin create my-plugin --type bundle
 ```
 
-### `delete`
-Delete a saved profile.
+See [Plugin System](plugins.md) for detailed documentation.
+
+---
+
+## AI Commands
+
+### `agen ai`
+
+AI-powered features for intelligent suggestions.
+
+**Subcommands:**
+
+| Command | Description |
+|---------|-------------|
+| `suggest` | Analyze project and recommend agents |
+| `explain <name>` | Get detailed explanation of agent/skill |
+| `compose <name>` | Create custom agent from description |
+
+**Examples:**
 ```bash
-agen profile delete <name>
+# Get agent suggestions for current project
+agen ai suggest
+
+# Learn about an agent
+agen ai explain frontend-specialist
+
+# Create a custom agent
+agen ai compose my-reviewer --description "React code reviewer"
 ```
 
-### `export`
-Export a profile configuration as JSON (stdout).
+See [AI Features](ai-features.md) for detailed documentation.
+
+---
+
+## Verification Command
+
+### `agen verify`
+
+Run verification checks on your project.
+
+**Usage:**
 ```bash
-agen profile export <name> > my-profile.json
+agen verify [flags]
 ```
 
-### `import`
-Import a profile from a JSON file.
+**Flags:**
+
+| Flag | Description |
+|------|-------------|
+| `--verbose` | Show detailed output |
+| `--security` | Only run security checks |
+| `--lint` | Only run lint checks |
+
+**Example:**
 ```bash
-agen profile import <file>
+agen verify
+# Runs security, lint, UX, and SEO checks
+```
+
+See [Verification](verification.md) for detailed documentation.
+
+---
+
+## Other Commands
+
+### `agen create`
+
+Create custom agents or skills.
+
+**Usage:**
+```bash
+agen create <type> <name>
+```
+
+**Types:** `agent`, `skill`, `workflow`
+
+**Example:**
+```bash
+agen create agent my-custom-agent
+# Creates .agent/agents/my-custom-agent.md
+```
+
+---
+
+### `agen remote`
+
+Manage remote template sources.
+
+**Subcommands:**
+
+| Command | Description |
+|---------|-------------|
+| `add <name> <url>` | Add remote source |
+| `remove <name>` | Remove remote source |
+| `list` | List configured remotes |
+| `fetch` | Fetch templates from remotes |
+
+---
+
+### `agen config`
+
+Manage global AGEN configuration.
+
+**Subcommands:**
+
+| Command | Description |
+|---------|-------------|
+| `get <key>` | Get config value |
+| `set <key> <value>` | Set config value |
+| `list` | Show all config |
+| `reset` | Reset to defaults |
+
+**Example:**
+```bash
+agen config set default_ide cursor
+agen config set auto_check_updates false
+```
+
+---
+
+## Exit Codes
+
+| Code | Meaning |
+|------|---------|
+| `0` | Success |
+| `1` | General error |
+| `2` | Configuration error |
+| `3` | Template not found |
+| `4` | IDE not detected |
+| `5` | Validation failed |
+
+---
+
+## Shell Completion
+
+Generate shell completion scripts:
+
+```bash
+# Bash
+agen completion bash > /etc/bash_completion.d/agen
+
+# Zsh
+agen completion zsh > "${fpath[1]}/_agen"
+
+# Fish
+agen completion fish > ~/.config/fish/completions/agen.fish
 ```

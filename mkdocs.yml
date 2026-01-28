@@ -79,9 +79,20 @@ nav:
   - Core Concepts:
     - IDE Support: ide-support.md
     - Architecture: architecture.md
+    - Project Files: project-files.md
   - Reference:
     - Commands: commands.md
+    - Agents: agents.md
+    - Skills: skills.md
+    - Workflows: workflows.md
     - Templates: templates.md
+  - Features:
+    - Profiles: profiles.md
+    - Plugins: plugins.md
+    - Team Collaboration: team.md
+    - Verification: verification.md
+    - AI Features: ai-features.md
+  - Advanced:
     - Advanced Usage: advanced.md
   - Development:
     - Contributing: contributing.md

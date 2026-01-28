@@ -1,27 +1,40 @@
-/* Modern Color Palette */
+/* Dracula Theme Palette */
 :root {
-    --md-primary-fg-color: #00ADD8;
-    /* Cyan */
-    --md-primary-fg-color--light: #4DCFE8;
-    --md-primary-fg-color--dark: #007A99;
-    --md-accent-fg-color: #7B2CBF;
-    /* Purple */
+    /* Dracula Core Colors */
+    --dracula-bg: #282a36;
+    --dracula-current: #44475a;
+    --dracula-fg: #f8f8f2;
+    --dracula-comment: #6272a4;
+    --dracula-cyan: #8be9fd;
+    --dracula-green: #50fa7b;
+    --dracula-orange: #ffb86c;
+    --dracula-pink: #ff79c6;
+    --dracula-purple: #bd93f9;
+    --dracula-red: #ff5555;
+    --dracula-yellow: #f1fa8c;
+
+    /* Material for MkDocs Overrides */
+    --md-default-bg-color: var(--dracula-bg);
+    --md-default-fg-color: var(--dracula-fg);
+    --md-default-fg-color--light: var(--dracula-comment);
+
+    --md-code-bg-color: var(--dracula-current);
+    --md-code-fg-color: var(--dracula-fg);
+
+    --md-primary-fg-color: var(--dracula-purple);
+    --md-primary-fg-color--light: var(--dracula-pink);
+    --md-primary-fg-color--dark: #6c5c96;
+    /* Darker purple */
+
+    --md-accent-fg-color: var(--dracula-pink);
 }
 
-/* Dark Mode Overrides */
-[data-md-color-scheme="slate"] {
-    --md-default-bg-color: #0F172A;
-    /* Deep slate blue/black */
-    --md-default-bg-color--light: #1E293B;
-    --md-code-bg-color: #1E293B;
-}
-
-/* Glassmorphism Header */
+/* Glassmorphism Header (Dracula Style) */
 .md-header {
-    background-color: rgba(15, 23, 42, 0.8) !important;
+    background-color: rgba(40, 42, 54, 0.85) !important;
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
-    border-bottom: 1px solid rgba(255, 255, 255, 0.1);
+    border-bottom: 1px solid var(--dracula-comment);
 }
 
 /* Glassmorphism Sidebar */
@@ -44,9 +57,10 @@ pre {
 }
 
 /* Hero Section / Landing Page */
+/* Hero Section / Landing Page */
 .md-typeset h1 {
     font-weight: 800;
-    background: -webkit-linear-gradient(45deg, #00ADD8, #7B2CBF);
+    background: -webkit-linear-gradient(45deg, var(--dracula-purple), var(--dracula-cyan));
     -webkit-background-clip: text;
     background-clip: text;
     -webkit-text-fill-color: transparent;
@@ -61,24 +75,24 @@ pre {
 }
 
 .md-button--primary {
-    background: linear-gradient(90deg, #00ADD8, #7B2CBF) !important;
+    background: linear-gradient(90deg, var(--dracula-purple), var(--dracula-pink)) !important;
     border: none !important;
-    color: white !important;
-    box-shadow: 0 4px 15px rgba(0, 173, 216, 0.4);
+    color: var(--dracula-bg) !important;
+    box-shadow: 0 4px 15px rgba(189, 147, 249, 0.4);
 }
 
 .md-button--primary:hover {
     transform: translateY(-2px);
-    box-shadow: 0 8px 25px rgba(123, 44, 191, 0.5);
+    box-shadow: 0 8px 25px rgba(255, 121, 198, 0.5);
 }
 
 /* Card Styling (Admonitions & Content) */
 .md-typeset .admonition,
 .md-typeset details {
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
+    border: 1px solid var(--dracula-comment) !important;
     border-radius: 12px;
-    background: rgba(30, 41, 59, 0.5);
-    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
+    background: rgba(40, 42, 54, 0.6);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
 }
 
 /* Logo Animation */

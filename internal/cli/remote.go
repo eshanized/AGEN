@@ -58,47 +58,7 @@ var remoteRemoveCmd = &cobra.Command{
 	RunE:  runRemoteRemove,
 }
 
-// hubCmd provides access to template hub
-var hubCmd = &cobra.Command{
-	Use:   "hub",
-	Short: "Template hub",
-	Long: `Access the AGEN template hub.
-
-Browse, search, and install community templates.
-
-Examples:
-  agen hub search security
-  agen hub install author/package
-  agen hub publish ./my-agent`,
-}
-
-var hubSearchCmd = &cobra.Command{
-	Use:   "search <query>",
-	Short: "Search hub",
-	Args:  cobra.MinimumNArgs(1),
-	RunE:  runHubSearch,
-}
-
-var hubInstallCmd = &cobra.Command{
-	Use:   "install <package>",
-	Short: "Install from hub",
-	Args:  cobra.ExactArgs(1),
-	RunE:  runHubInstall,
-}
-
-var hubPublishCmd = &cobra.Command{
-	Use:   "publish <path>",
-	Short: "Publish to hub",
-	Args:  cobra.ExactArgs(1),
-	RunE:  runHubPublish,
-}
-
-var hubInfoCmd = &cobra.Command{
-	Use:   "info <package>",
-	Short: "Show package info",
-	Args:  cobra.ExactArgs(1),
-	RunE:  runHubInfo,
-}
+// Hub commands removed due to being mock/stubs
 
 func init() {
 	remoteAddCmd.Flags().String("branch", "main", "branch to use")
@@ -108,13 +68,7 @@ func init() {
 	remoteCmd.AddCommand(remoteListCmd)
 	remoteCmd.AddCommand(remoteRemoveCmd)
 
-	hubCmd.AddCommand(hubSearchCmd)
-	hubCmd.AddCommand(hubInstallCmd)
-	hubCmd.AddCommand(hubPublishCmd)
-	hubCmd.AddCommand(hubInfoCmd)
-
 	rootCmd.AddCommand(remoteCmd)
-	rootCmd.AddCommand(hubCmd)
 }
 
 func getRemotesPath() (string, error) {
@@ -253,106 +207,5 @@ func runRemoteRemove(cmd *cobra.Command, args []string) error {
 	}
 
 	printSuccess("Removed remote: %s", name)
-	return nil
-}
-
-// Hub commands (stubs - would connect to real hub)
-
-func runHubSearch(cmd *cobra.Command, args []string) error {
-	query := args[0]
-
-	cyan := color.New(color.FgCyan, color.Bold)
-	cyan.Println("\n🔍 Hub Search")
-	fmt.Printf("Query: %s\n\n", query)
-
-	// Simulated results
-	results := []struct {
-		Name        string
-		Author      string
-		Downloads   int
-		Description string
-	}{
-		{"security-pack", "eshanized", 1250, "Security agents and skills bundle"},
-		{"frontend-pro", "community", 890, "Advanced frontend specialist"},
-		{"devops-tools", "eshanized", 560, "DevOps and CI/CD agents"},
-	}
-
-	for _, r := range results {
-		fmt.Printf("  %s/%s\n", r.Author, r.Name)
-		color.New(color.Faint).Printf("    %s\n", r.Description)
-		color.New(color.Faint).Printf("    ⬇ %d downloads\n\n", r.Downloads)
-	}
-
-	fmt.Println("Install with:")
-	fmt.Println("  agen hub install author/package")
-
-	return nil
-}
-
-func runHubInstall(cmd *cobra.Command, args []string) error {
-	pkg := args[0]
-
-	cyan := color.New(color.FgCyan, color.Bold)
-	cyan.Println("\n📦 Installing from Hub")
-	fmt.Printf("Package: %s\n\n", pkg)
-
-	// This would actually download from hub
-	printInfo("Downloading %s...", pkg)
-	printInfo("Extracting templates...")
-	printSuccess("Installed %s", pkg)
-
-	fmt.Println("\nNew templates available:")
-	fmt.Println("  agen list")
-
-	return nil
-}
-
-func runHubPublish(cmd *cobra.Command, args []string) error {
-	path := args[0]
-
-	cyan := color.New(color.FgCyan, color.Bold)
-	cyan.Println("\n🚀 Publishing to Hub")
-	fmt.Printf("Path: %s\n\n", path)
-
-	// Check if plugin.json exists
-	pluginFile := filepath.Join(path, "plugin.json")
-	if _, err := os.Stat(pluginFile); os.IsNotExist(err) {
-		return fmt.Errorf("plugin.json not found in %s", path)
-	}
-
-	printInfo("Validating package...")
-	printInfo("Uploading to hub...")
-	printSuccess("Published!")
-
-	fmt.Println("\nYour package is now available at:")
-	fmt.Println("  agen hub install yourname/package")
-
-	return nil
-}
-
-func runHubInfo(cmd *cobra.Command, args []string) error {
-	pkg := args[0]
-
-	cyan := color.New(color.FgCyan, color.Bold)
-	cyan.Printf("\n📦 %s\n\n", pkg)
-
-	// Simulated info
-	fmt.Println("Author:      eshanized")
-	fmt.Println("Version:     1.2.0")
-	fmt.Println("Downloads:   1,250")
-	fmt.Println("License:     MIT")
-	fmt.Println()
-	fmt.Println("Description:")
-	fmt.Println("  Security agents and skills bundle for comprehensive")
-	fmt.Println("  security auditing and vulnerability scanning.")
-	fmt.Println()
-	fmt.Println("Contents:")
-	fmt.Println("  - 3 agents")
-	fmt.Println("  - 5 skills")
-	fmt.Println("  - 2 workflows")
-	fmt.Println()
-	fmt.Println("Install with:")
-	fmt.Printf("  agen hub install %s\n", pkg)
-
 	return nil
 }

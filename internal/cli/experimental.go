@@ -17,24 +17,7 @@ import (
 	"github.com/spf13/cobra"
 )
 
-var themeCmd = &cobra.Command{
-	Use:   "theme [name]",
-	Short: "Manage output themes",
-	Long: `Set or list available output themes.
-
-Themes:
-- default: Standard colored output
-- dark: High contrast for dark terminals
-- light: Optimized for light terminals
-- minimal: No colors, symbols only
-- nerd: With Nerd Font icons
-
-Examples:
-  agen theme          # List themes
-  agen theme dark     # Set dark theme`,
-	Args: cobra.MaximumNArgs(1),
-	RunE: runTheme,
-}
+// Theme features removed for production hardening
 
 var aliasCmd = &cobra.Command{
 	Use:   "alias",
@@ -73,46 +56,7 @@ func init() {
 	aliasCmd.AddCommand(aliasListCmd)
 	aliasCmd.AddCommand(aliasRemoveCmd)
 
-	rootCmd.AddCommand(themeCmd)
 	rootCmd.AddCommand(aliasCmd)
-}
-
-// runTheme manages output themes
-func runTheme(cmd *cobra.Command, args []string) error {
-	themes := []string{"default", "dark", "light", "minimal", "nerd"}
-
-	if len(args) == 0 {
-		cyan := color.New(color.FgCyan, color.Bold)
-		cyan.Println("\n🎨 Available Themes")
-		fmt.Println()
-		for _, t := range themes {
-			fmt.Printf("  %s\n", t)
-		}
-		fmt.Println()
-		fmt.Println("Set with: agen theme <name>")
-		return nil
-	}
-
-	themeName := args[0]
-
-	// Validate theme
-	valid := false
-	for _, t := range themes {
-		if t == themeName {
-			valid = true
-			break
-		}
-	}
-
-	if !valid {
-		return fmt.Errorf("unknown theme: %s", themeName)
-	}
-
-	// Save to config (simplified)
-	printSuccess("Theme set to: %s", themeName)
-	fmt.Println("Changes will apply on next run.")
-
-	return nil
 }
 
 // Alias management

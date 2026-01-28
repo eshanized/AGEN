@@ -8,9 +8,10 @@ repo_url: https://github.com/eshanized/agen
 
 theme:
   name: material
+  logo: assets/logo.svg
+  favicon: assets/favicon.svg
   icon:
     repo: fontawesome/brands/github
-  favicon: assets/favicon.png # Placeholder, user might need to add this
   features:
     - navigation.tabs
     - navigation.tabs.sticky
@@ -19,29 +20,35 @@ theme:
     - navigation.path
     - navigation.top
     - navigation.tracking
+    - navigation.instant
     - search.suggest
     - search.highlight
     - content.code.copy
     - content.code.annotate
     - content.tooltips
+  font:
+    text: Inter
+    code: JetBrains Mono
   palette:
+    # Dark mode (default)
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: cyan
+      accent: purple
+      toggle:
+        icon: material/weather-night
+        name: Switch to safe mode
     # Light mode
     - media: "(prefers-color-scheme: light)"
       scheme: default
-      primary: teal
-      accent: indigo
+      primary: cyan
+      accent: purple
       toggle:
         icon: material/weather-sunny
         name: Switch to dark mode
 
-    # Dark mode
-    - media: "(prefers-color-scheme: dark)"
-      scheme: slate
-      primary: cyan
-      accent: lime
-      toggle:
-        icon: material/weather-night
-        name: Switch to light mode
+extra_css:
+  - stylesheets/extra.css
 
 extra:
   social:

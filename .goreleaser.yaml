@@ -1,0 +1,107 @@
+# yaml-language-server: $schema=https://goreleaser.com/static/schema.json
+
+# SPDX-License-Identifier: MIT
+# Copyright (c) 2026 Eshan Roy <eshanized@proton.me>
+
+version: 2
+
+project_name: agen
+
+before:
+  hooks:
+    - go mod tidy
+
+builds:
+  - id: agen
+    main: ./cmd/agen
+    binary: agen
+    env:
+      - CGO_ENABLED=0
+    goos:
+      - linux
+      - darwin
+      - windows
+    goarch:
+      - amd64
+      - arm64
+    ldflags:
+      - -s -w
+      - -X github.com/eshanized/agen/internal/cli.Version={{.Version}}
+      - -X github.com/eshanized/agen/internal/cli.Commit={{.Commit}}
+      - -X github.com/eshanized/agen/internal/cli.BuildDate={{.Date}}
+
+archives:
+  - id: default
+    format: tar.gz
+    name_template: "{{ .ProjectName }}_{{ .Version }}_{{ .Os }}_{{ .Arch }}"
+    format_overrides:
+      - goos: windows
+        format: zip
+
+checksum:
+  name_template: "checksums.txt"
+
+snapshot:
+  version_template: "{{ incpatch .Version }}-next"
+
+changelog:
+  sort: asc
+  filters:
+    exclude:
+      - "^docs:"
+      - "^test:"
+      - "^ci:"
+      - "^chore:"
+
+brews:
+  - name: agen
+    repository:
+      owner: eshanized
+      name: homebrew-tap
+    directory: Formula
+    homepage: "https://github.com/eshanized/agen"
+    description: "AI Agent Template Manager for multiple IDEs"
+    license: "MIT"
+    install: |
+      bin.install "agen"
+
+scoop:
+  name: agen
+  repository:
+    owner: eshanized
+    name: scoop-bucket
+  homepage: "https://github.com/eshanized/agen"
+  description: "AI Agent Template Manager for multiple IDEs"
+  license: "MIT"
+
+nfpms:
+  - id: agen
+    package_name: agen
+    vendor: Eshan Roy
+    homepage: "https://github.com/eshanized/agen"
+    maintainer: "Eshan Roy <eshanized@proton.me>"
+    description: "AI Agent Template Manager for multiple IDEs"
+    license: "MIT"
+    formats:
+      - deb
+      - rpm
+    bindir: /usr/bin
+
+aurs:
+  - name: agen-bin
+    homepage: "https://github.com/eshanized/agen"
+    description: "AI Agent Template Manager for multiple IDEs"
+    maintainers:
+      - "Eshan Roy <eshanized@proton.me>"
+    license: "MIT"
+    private_key: "{{ .Env.AUR_KEY }}"
+    git_url: "ssh://aur@aur.archlinux.org/agen-bin.git"
+    package: |
+      install -Dm755 "./agen" "${pkgdir}/usr/bin/agen"
+
+release:
+  github:
+    owner: eshanized
+    name: agen
+  draft: false
+  prerelease: auto

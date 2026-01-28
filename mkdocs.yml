@@ -1,0 +1,62 @@
+site_name: AGEN
+site_description: AI Agent Template Manager for multiple IDEs
+site_author: Eshan Roy
+site_url: https://eshanized.github.io/agen/
+
+repo_name: eshanized/agen
+repo_url: https://github.com/eshanized/agen
+
+theme:
+  name: material
+  icon:
+    repo: fontawesome/brands/github
+  palette:
+    # Palette toggle for light mode
+    - media: "(prefers-color-scheme: light)"
+      scheme: default
+      primary: teal
+      accent: purple
+      toggle:
+        icon: material/brightness-7
+        name: Switch to dark mode
+
+    # Palette toggle for dark mode
+    - media: "(prefers-color-scheme: dark)"
+      scheme: slate
+      primary: teal
+      accent: lime
+      toggle:
+        icon: material/brightness-4
+        name: Switch to light mode
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - content.code.copy
+    - content.code.annotate
+
+markdown_extensions:
+  - admonition
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - pymdownx.tabbed:
+      alternate_style: true
+  - attr_list
+
+nav:
+  - Home: index.md
+  - Getting Started:
+    - Installation: installation.md
+    - Quick Start: getting-started.md
+  - Guides:
+    - IDE Support: ide-support.md
+    - Templates: templates.md
+    - Advanced Usage: advanced.md
+  - Reference:
+    - Commands: commands.md
+  - Development:
+    - Contributing: contributing.md

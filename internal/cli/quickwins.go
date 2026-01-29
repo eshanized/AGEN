@@ -336,7 +336,31 @@ func runChangelog(cmd *cobra.Command, args []string) error {
 	cyan.Printf("\n📝 Changelog for %s\n\n", version)
 
 	// Embedded changelog for current version
-	changelog := `## v1.0.0 (2026-01-28)
+	changelog := `## v2.0.0 (2026-01-29)
+
+### 🚀 Major Changes
+- Production-grade refactor: removed all demo/toy behavior
+- Expanded to 12 IDE support (added JetBrains, Neovim, Emacs, Aider, Claude Code, Copilot Workspace, Cline, Continue)
+- 30 agents, 46 skills, 16 workflows
+- Enhanced verification system with security scanning
+- Improved health dashboard with agent recommendations
+
+### ✨ New Features
+- Team collaboration with agen.team.json
+- Plugin system for custom templates
+- Remote repository management
+- Alias command support
+- Compose custom agents
+- Interactive agent creation wizard
+
+### 🔧 Technical
+- Strict error handling (fail loudly, no silent fallbacks)
+- Explicit configuration required (no magic defaults)
+- Enhanced test coverage
+
+---
+
+## v1.0.0 (2026-01-28)
 
 ### ✨ Features
 - Initial release of AGEN CLI
@@ -349,18 +373,6 @@ func runChangelog(cmd *cobra.Command, args []string) error {
 - Fuzzy search across agents/skills
 - Self-update mechanism
 - Go-based verification scripts
-
-### 🔧 Technical
-- Cross-platform builds (Windows, macOS, Linux)
-- Package manager support (Homebrew, Scoop, AUR, deb, rpm)
-- Embedded templates with offline support
-- GitHub-based template updates
-
-### 🎯 Commands
-- agen init, list, status, health
-- agen verify, update, upgrade
-- agen search, profile, playground
-- agen doctor, clean, stats
 `
 
 	fmt.Println(changelog)

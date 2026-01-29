@@ -52,19 +52,13 @@ Scans your codebase for security issues:
 
 ### Patterns Detected
 
-```
-# API Keys
-api_key = "sk-1234..."
-API_KEY: "1234..."
+The security scanner detects:
 
-# Passwords
-password = "secret123"
-DB_PASSWORD=mypass
-
-# Tokens
-token = "ghp_..."
-jwt_secret = "..."
-```
+- **AWS Keys**: `AKIA...` format patterns
+- **GitHub Tokens**: `ghp_...` format patterns  
+- **Private Keys**: PEM header patterns
+- **Credentials**: Variable assignments containing credentials
+- **Tokens**: Variables with sensitive prefixes
 
 ---
 
@@ -191,14 +185,14 @@ Results are displayed with severity levels:
 🔍 Running Security Scan...
 
 ❌ CRITICAL (2 items)
-  • src/config.js:15 - Hardcoded API key detected
-  • .env:3 - Database password exposed
+  • src/config.js:15 - Hardcoded credential detected
+  • .env:3 - Sensitive value exposed
 
 ⚠️ WARNING (1 item)
-  • package.json - Vulnerable dependency: lodash < 4.17.21
+  • package.json - Vulnerable dependency detected
 
 ✅ PASSED (5 items)
-  • No exposed secrets in environment
+  • No exposed sensitive values in environment
   • .gitignore properly configured
   • No SQL injection patterns
   • No XSS vulnerabilities

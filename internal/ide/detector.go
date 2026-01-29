@@ -168,7 +168,7 @@ func GetInstalledInfo(projectPath string, adapter Adapter) (*InstalledInfo, erro
 		}
 	} else {
 		// Default: check directories
-		info.Version = "1.0.0"
+		info.Version = templates.CurrentVersion
 	}
 
 	// Count agents

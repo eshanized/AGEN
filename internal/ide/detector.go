@@ -108,10 +108,18 @@ func Detect(projectPath string) Adapter {
 	// Priority order for detection
 	// check for explicit IDE config files first
 	detectionOrder := []string{
-		"cursor",      // .cursorrules
-		"windsurf",    // .windsurfrules
-		"zed",         // .zed/
-		"antigravity", // .agent/ (check last since other IDEs might also have agents)
+		"cursor",           // .cursorrules
+		"windsurf",         // .windsurfrules
+		"cline",            // .clinerules
+		"continue",         // .continue/ or .continuerules
+		"claudecode",       // CLAUDE.md
+		"copilotworkspace", // .github/copilot-instructions.md
+		"aider",            // .aider.conf.yml
+		"jetbrains",        // .idea/
+		"zed",              // .zed/
+		"neovim",           // .nvim/ or .nvim.lua
+		"emacs",            // .dir-locals.el
+		"antigravity",      // .agent/ (check last since other IDEs might also have agents)
 	}
 
 	for _, name := range detectionOrder {
@@ -197,8 +205,25 @@ func GetInstalledInfo(projectPath string, adapter Adapter) (*InstalledInfo, erro
 
 // init registers all built-in adapters
 func init() {
+	// Original adapters
 	RegisterAdapter("antigravity", &AntigravityAdapter{})
 	RegisterAdapter("cursor", &CursorAdapter{})
 	RegisterAdapter("windsurf", &WindsurfAdapter{})
 	RegisterAdapter("zed", &ZedAdapter{})
+
+	// VS Code extensions
+	RegisterAdapter("continue", &ContinueAdapter{})
+	RegisterAdapter("cline", &ClineAdapter{})
+
+	// Desktop IDEs
+	RegisterAdapter("jetbrains", &JetBrainsAdapter{})
+	RegisterAdapter("neovim", &NeovimAdapter{})
+	RegisterAdapter("emacs", &EmacsAdapter{})
+
+	// CLI tools
+	RegisterAdapter("aider", &AiderAdapter{})
+
+	// Cloud/Platform
+	RegisterAdapter("claudecode", &ClaudeCodeAdapter{})
+	RegisterAdapter("copilotworkspace", &CopilotWorkspaceAdapter{})
 }

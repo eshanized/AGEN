@@ -4,7 +4,7 @@
 [![License](https://img.shields.io/badge/License-MIT-green.svg)](LICENSE)
 [![Release](https://img.shields.io/github/v/release/eshanized/agen)](https://github.com/eshanized/agen/releases)
 
-A cross-platform CLI tool for managing AI agent templates. Supports multiple IDEs: **Antigravity**, **Cursor**, **Windsurf**, and **Zed**.
+A cross-platform CLI tool for managing AI agent templates. Supports **12 IDEs and AI coding tools** with unified configuration.
 
 ## 🚀 Quick Start
 
@@ -33,14 +33,43 @@ agen health
 
 ## ✨ Features
 
-- **🎯 Multi-IDE Support**: Auto-detects and configures for Antigravity, Cursor, Windsurf, Zed
-- **📦 Embedded Templates**: Works offline with built-in agent templates
-- **🔄 Smart Updates**: Conflict resolution when updating templates you've modified
+- **🎯 12 IDE Support**: Works with Cursor, VS Code, JetBrains, Neovim, Emacs, and more
+- **📦 30+ Agents**: Backend, frontend, DevOps, security, ML, blockchain specialists
+- **🛠 46+ Skills**: API patterns, testing, accessibility, Kubernetes, Rust, and more
+- **🔄 16 Workflows**: `/plan`, `/deploy`, `/audit`, `/review`, `/migrate`, and more
 - **🔍 Fuzzy Search**: Find agents and skills with `agen search`
 - **📊 Health Dashboard**: `agen health` shows project status and recommendations
 - **🧪 Playground**: Test agents in temporary projects with `agen playground`
 - **📁 Profiles**: Save and reuse agent configurations across projects
-- **🔐 Verification**: Built-in security, lint, UX, and SEO checks
+
+## 🔧 Supported IDEs
+
+| Category | IDEs/Tools |
+|----------|------------|
+| **VS Code Extensions** | Cursor, Windsurf, Cline, Continue |
+| **Desktop IDEs** | Antigravity, Zed, JetBrains (IntelliJ, PyCharm), Neovim, Emacs |
+| **CLI Tools** | Aider |
+| **Cloud/Platform** | Claude Code, GitHub Copilot Workspace |
+
+<details>
+<summary><strong>View IDE Configuration Formats</strong></summary>
+
+| IDE | Config Format | Detection |
+|-----|---------------|-----------|
+| Antigravity | `.agent/` folder | `.agent/` directory |
+| Cursor | `.cursorrules` | `.cursorrules` file |
+| Windsurf | `.windsurfrules` | `.windsurfrules` file |
+| Cline | `.clinerules` | `.clinerules` file |
+| Continue | `.continue/` | `.continue/` directory |
+| Zed | `.zed/prompts/` | `.zed/` directory |
+| JetBrains | `.idea/ai-assistant.xml` | `.idea/` directory |
+| Neovim | `.nvim/ai-rules.md` | `.nvim/` or `.nvim.lua` |
+| Emacs | `.dir-locals.el` | `.dir-locals.el` file |
+| Aider | `.aider.conf.yml` | `.aider.conf.yml` |
+| Claude Code | `CLAUDE.md` | `CLAUDE.md` file |
+| Copilot Workspace | `.github/copilot-instructions.md` | `.github/` |
+
+</details>
 
 ## 📖 Commands
 
@@ -56,15 +85,6 @@ agen health
 | `agen upgrade` | Update agen binary itself |
 | `agen profile` | Manage saved configurations |
 | `agen playground` | Create temporary test project |
-
-## 🔧 IDE Support
-
-| IDE | Format | Auto-detection |
-|-----|--------|----------------|
-| **Antigravity/Claude** | `.agent/` folder | ✅ `.agent/` directory |
-| **Cursor** | `.cursorrules` file | ✅ `.cursorrules` file |
-| **Windsurf** | `.windsurfrules` file | ✅ `.windsurfrules` file |
-| **Zed** | `.zed/prompts/` folder | ✅ `.zed/` directory |
 
 ## 📦 Installation
 
@@ -93,6 +113,31 @@ sudo dpkg -i agen_*.deb
 ### Binary Download
 Download from [GitHub Releases](https://github.com/eshanized/agen/releases).
 
+## 🤖 Available Agents
+
+<details>
+<summary><strong>View all 30+ agents</strong></summary>
+
+| Agent | Domain |
+|-------|--------|
+| `orchestrator` | Multi-agent coordination |
+| `backend-specialist` | Server-side development |
+| `frontend-developer` | UI/UX implementation |
+| `mobile-developer` | React Native, Flutter |
+| `devops-engineer` | CI/CD, infrastructure |
+| `security-auditor` | Security analysis |
+| `debugger` | Root cause analysis |
+| `test-engineer` | Testing strategies |
+| `ai-ml-engineer` | ML pipelines, LLMs |
+| `data-engineer` | ETL, data warehousing |
+| `cloud-architect` | AWS/GCP/Azure |
+| `blockchain-developer` | Smart contracts |
+| `tech-lead` | Architecture decisions |
+| `accessibility-specialist` | WCAG compliance |
+| *...and more* | |
+
+</details>
+
 ## 🏗 Building from Source
 
 ```bash
@@ -101,13 +146,17 @@ cd agen
 go build -o agen ./cmd/agen
 ```
 
+## 📚 Documentation
+
+Visit the [full documentation](https://eshanized.github.io/agen/) for detailed guides.
+
 ## 📜 License
 
 MIT License - Copyright (c) 2026 [Eshan Roy](mailto:eshanized@proton.me)
 
 ## 🤝 Contributing
 
-Contributions welcome! Please read the contributing guidelines first.
+Contributions welcome! Please read the [contributing guidelines](docs/contributing.md) first.
 
 ---
 

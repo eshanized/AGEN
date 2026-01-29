@@ -17,7 +17,7 @@ import (
 )
 
 // CurrentVersion is the version of the embedded templates
-const CurrentVersion = "1.0.0"
+const CurrentVersion = "2.0.0"
 
 // Templates holds all loaded agent templates
 type Templates struct {

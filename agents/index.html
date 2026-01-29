@@ -1,0 +1,2710 @@
+
+<!doctype html>
+<html lang="en" class="no-js">
+  <head>
+    
+      <meta charset="utf-8">
+      <meta name="viewport" content="width=device-width,initial-scale=1">
+      
+        <meta name="description" content="AI Agent Template Manager for multiple IDEs">
+      
+      
+        <meta name="author" content="Eshan Roy">
+      
+      
+        <link rel="canonical" href="https://eshanized.github.io/agen/agents/">
+      
+      
+        <link rel="prev" href="../commands/">
+      
+      
+        <link rel="next" href="../skills/">
+      
+      
+        
+      
+      
+      <link rel="icon" href="../assets/favicon.svg">
+      <meta name="generator" content="mkdocs-1.6.1, mkdocs-material-9.7.1">
+    
+    
+      
+        <title>Agents - AGEN</title>
+      
+    
+    
+      <link rel="stylesheet" href="../assets/stylesheets/main.484c7ddc.min.css">
+      
+        
+        <link rel="stylesheet" href="../assets/stylesheets/palette.ab4e12ef.min.css">
+      
+      
+
+
+    
+    
+      
+    
+    
+      
+        
+        
+        <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+        <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Fira+Code:300,300i,400,400i,700,700i%7CFira+Code:400,400i,700,700i&display=fallback">
+        <style>:root{--md-text-font:"Fira Code";--md-code-font:"Fira Code"}</style>
+      
+    
+    
+      <link rel="stylesheet" href="../stylesheets/extra.css">
+    
+    <script>__md_scope=new URL("..",location),__md_hash=e=>[...e].reduce(((e,_)=>(e<<5)-e+_.charCodeAt(0)),0),__md_get=(e,_=localStorage,t=__md_scope)=>JSON.parse(_.getItem(t.pathname+"."+e)),__md_set=(e,_,t=localStorage,a=__md_scope)=>{try{t.setItem(a.pathname+"."+e,JSON.stringify(_))}catch(e){}}</script>
+    
+      
+
+    
+    
+  </head>
+  
+  
+    
+    
+      
+    
+    
+    
+    
+    <body dir="ltr" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="purple">
+  
+    
+    <input class="md-toggle" data-md-toggle="drawer" type="checkbox" id="__drawer" autocomplete="off">
+    <input class="md-toggle" data-md-toggle="search" type="checkbox" id="__search" autocomplete="off">
+    <label class="md-overlay" for="__drawer"></label>
+    <div data-md-component="skip">
+      
+        
+        <a href="#agent-catalog" class="md-skip">
+          Skip to content
+        </a>
+      
+    </div>
+    <div data-md-component="announce">
+      
+    </div>
+    
+    
+      
+
+  
+
+<header class="md-header md-header--shadow" data-md-component="header">
+  <nav class="md-header__inner md-grid" aria-label="Header">
+    <a href=".." title="AGEN" class="md-header__button md-logo" aria-label="AGEN" data-md-component="logo">
+      
+  <img src="../assets/favicon.svg" alt="logo">
+
+    </a>
+    <label class="md-header__button md-icon" for="__drawer">
+      
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M3 6h18v2H3zm0 5h18v2H3zm0 5h18v2H3z"/></svg>
+    </label>
+    <div class="md-header__title" data-md-component="header-title">
+      <div class="md-header__ellipsis">
+        <div class="md-header__topic">
+          <span class="md-ellipsis">
+            AGEN
+          </span>
+        </div>
+        <div class="md-header__topic" data-md-component="header-topic">
+          <span class="md-ellipsis">
+            
+              Agents
+            
+          </span>
+        </div>
+      </div>
+    </div>
+    
+      
+        <form class="md-header__option" data-md-component="palette">
+  
+    
+    
+    
+    <input class="md-option" data-md-color-media="" data-md-color-scheme="slate" data-md-color-primary="cyan" data-md-color-accent="purple"  aria-label="Switch to safe mode"  type="radio" name="__palette" id="__palette_0">
+    
+      <label class="md-header__button md-icon" title="Switch to safe mode" for="__palette_0" hidden>
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="m17.75 4.09-2.53 1.94.91 3.06-2.63-1.81-2.63 1.81.91-3.06-2.53-1.94L12.44 4l1.06-3 1.06 3zm3.5 6.91-1.64 1.25.59 1.98-1.7-1.17-1.7 1.17.59-1.98L15.75 11l2.06-.05L18.5 9l.69 1.95zm-2.28 4.95c.83-.08 1.72 1.1 1.19 1.85-.32.45-.66.87-1.08 1.27C15.17 23 8.84 23 4.94 19.07c-3.91-3.9-3.91-10.24 0-14.14.4-.4.82-.76 1.27-1.08.75-.53 1.93.36 1.85 1.19-.27 2.86.69 5.83 2.89 8.02a9.96 9.96 0 0 0 8.02 2.89m-1.64 2.02a12.08 12.08 0 0 1-7.8-3.47c-2.17-2.19-3.33-5-3.49-7.82-2.81 3.14-2.7 7.96.31 10.98 3.02 3.01 7.84 3.12 10.98.31"/></svg>
+      </label>
+    
+  
+</form>
+      
+    
+    
+      <script>var palette=__md_get("__palette");if(palette&&palette.color){if("(prefers-color-scheme)"===palette.color.media){var media=matchMedia("(prefers-color-scheme: light)"),input=document.querySelector(media.matches?"[data-md-color-media='(prefers-color-scheme: light)']":"[data-md-color-media='(prefers-color-scheme: dark)']");palette.color.media=input.getAttribute("data-md-color-media"),palette.color.scheme=input.getAttribute("data-md-color-scheme"),palette.color.primary=input.getAttribute("data-md-color-primary"),palette.color.accent=input.getAttribute("data-md-color-accent")}for(var[key,value]of Object.entries(palette.color))document.body.setAttribute("data-md-color-"+key,value)}</script>
+    
+    
+    
+      
+      
+        <label class="md-header__button md-icon" for="__search">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        </label>
+        <div class="md-search" data-md-component="search" role="dialog">
+  <label class="md-search__overlay" for="__search"></label>
+  <div class="md-search__inner" role="search">
+    <form class="md-search__form" name="search">
+      <input type="text" class="md-search__input" name="query" aria-label="Search" placeholder="Search" autocapitalize="off" autocorrect="off" autocomplete="off" spellcheck="false" data-md-component="search-query" required>
+      <label class="md-search__icon md-icon" for="__search">
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M9.5 3A6.5 6.5 0 0 1 16 9.5c0 1.61-.59 3.09-1.56 4.23l.27.27h.79l5 5-1.5 1.5-5-5v-.79l-.27-.27A6.52 6.52 0 0 1 9.5 16 6.5 6.5 0 0 1 3 9.5 6.5 6.5 0 0 1 9.5 3m0 2C7 5 5 7 5 9.5S7 14 9.5 14 14 12 14 9.5 12 5 9.5 5"/></svg>
+        
+        <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M20 11v2H8l5.5 5.5-1.42 1.42L4.16 12l7.92-7.92L13.5 5.5 8 11z"/></svg>
+      </label>
+      <nav class="md-search__options" aria-label="Search">
+        
+        <button type="reset" class="md-search__icon md-icon" title="Clear" aria-label="Clear" tabindex="-1">
+          
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M19 6.41 17.59 5 12 10.59 6.41 5 5 6.41 10.59 12 5 17.59 6.41 19 12 13.41 17.59 19 19 17.59 13.41 12z"/></svg>
+        </button>
+      </nav>
+      
+        <div class="md-search__suggest" data-md-component="search-suggest"></div>
+      
+    </form>
+    <div class="md-search__output">
+      <div class="md-search__scrollwrap" tabindex="0" data-md-scrollfix>
+        <div class="md-search-result" data-md-component="search-result">
+          <div class="md-search-result__meta">
+            Initializing search
+          </div>
+          <ol class="md-search-result__list" role="presentation"></ol>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+      
+    
+    
+      <div class="md-header__source">
+        <a href="https://github.com/eshanized/agen" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eshanized/agen
+  </div>
+</a>
+      </div>
+    
+  </nav>
+  
+</header>
+    
+    <div class="md-container" data-md-component="container">
+      
+      
+        
+          
+        
+      
+      <main class="md-main" data-md-component="main">
+        <div class="md-main__inner md-grid">
+          
+            
+              
+              <div class="md-sidebar md-sidebar--primary" data-md-component="sidebar" data-md-type="navigation" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+
+
+<nav class="md-nav md-nav--primary" aria-label="Navigation" data-md-level="0">
+  <label class="md-nav__title" for="__drawer">
+    <a href=".." title="AGEN" class="md-nav__button md-logo" aria-label="AGEN" data-md-component="logo">
+      
+  <img src="../assets/favicon.svg" alt="logo">
+
+    </a>
+    AGEN
+  </label>
+  
+    <div class="md-nav__source">
+      <a href="https://github.com/eshanized/agen" title="Go to repository" class="md-source" data-md-component="source">
+  <div class="md-source__icon md-icon">
+    
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+  </div>
+  <div class="md-source__repository">
+    eshanized/agen
+  </div>
+</a>
+    </div>
+  
+  <ul class="md-nav__list" data-md-scrollfix>
+    
+      
+      
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href=".." class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Home
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_2" >
+        
+          
+          <label class="md-nav__link" for="__nav_2" id="__nav_2_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Getting Started
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_2_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_2">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Getting Started
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../installation/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Installation
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../getting-started/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Quick Start
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../configuration/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Configuration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_3" >
+        
+          
+          <label class="md-nav__link" for="__nav_3" id="__nav_3_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Core Concepts
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_3_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_3">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Core Concepts
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ide-support/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    IDE Support
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../architecture/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Architecture
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../project-files/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Project Files
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+    
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--active md-nav__item--section md-nav__item--nested">
+      
+        
+        
+        <input class="md-nav__toggle md-toggle " type="checkbox" id="__nav_4" checked>
+        
+          
+          <label class="md-nav__link" for="__nav_4" id="__nav_4_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Reference
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_4_label" aria-expanded="true">
+          <label class="md-nav__title" for="__nav_4">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Reference
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../commands/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Commands
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+    
+  
+  
+  
+    <li class="md-nav__item md-nav__item--active">
+      
+      <input class="md-nav__toggle md-toggle" type="checkbox" id="__toc">
+      
+      
+        
+      
+      
+        <label class="md-nav__link md-nav__link--active" for="__toc">
+          
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents
+  
+
+    
+  </span>
+  
+  
+
+          <span class="md-nav__icon md-icon"></span>
+        </label>
+      
+      <a href="./" class="md-nav__link md-nav__link--active">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Agents
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+      
+        
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-agents-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Agents Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frontend-specialist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Specialist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-specialist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Specialist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-architect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Architect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-developer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mobile Developer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#game-developer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Game Developer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-testing-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality &amp; Testing Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality &amp; Testing Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-engineer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Engineer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa-automation-engineer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QA Automation Engineer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-optimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Optimizer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-auditor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Auditor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penetration-tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penetration Tester
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devops-infrastructure-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps &amp; Infrastructure Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DevOps &amp; Infrastructure Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#devops-engineer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps Engineer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-documentation-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning &amp; Documentation Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning &amp; Documentation Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-planner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Planner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-owner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product Owner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Writer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seo-specialist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SEO Specialist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploration-analysis-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exploration &amp; Analysis Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exploration &amp; Analysis Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explorer-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explorer Agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-archaeologist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Archaeologist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orchestration-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration Agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Orchestration Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestrator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selecting-agents-during-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selecting Agents During Init
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-files-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Files Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+      
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../skills/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Skills
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../workflows/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Workflows
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../templates/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Templates
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_5" >
+        
+          
+          <label class="md-nav__link" for="__nav_5" id="__nav_5_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Features
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_5_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_5">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Features
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../profiles/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Profiles
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../plugins/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Plugins
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../team/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Team Collaboration
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../verification/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Verification
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../ai-features/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    AI Features
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_6" >
+        
+          
+          <label class="md-nav__link" for="__nav_6" id="__nav_6_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_6_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_6">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Advanced
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../advanced/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Advanced Usage
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+      
+      
+  
+  
+  
+  
+    
+    
+    
+    
+      
+        
+        
+      
+    
+    
+    <li class="md-nav__item md-nav__item--section md-nav__item--nested">
+      
+        
+        
+          
+        
+        <input class="md-nav__toggle md-toggle md-toggle--indeterminate" type="checkbox" id="__nav_7" >
+        
+          
+          <label class="md-nav__link" for="__nav_7" id="__nav_7_label" tabindex="">
+            
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Development
+  
+
+    
+  </span>
+  
+  
+
+            <span class="md-nav__icon md-icon"></span>
+          </label>
+        
+        <nav class="md-nav" data-md-level="1" aria-labelledby="__nav_7_label" aria-expanded="false">
+          <label class="md-nav__title" for="__nav_7">
+            <span class="md-nav__icon md-icon"></span>
+            
+  
+    Development
+  
+
+          </label>
+          <ul class="md-nav__list" data-md-scrollfix>
+            
+              
+                
+  
+  
+  
+  
+    <li class="md-nav__item">
+      <a href="../contributing/" class="md-nav__link">
+        
+  
+  
+  <span class="md-ellipsis">
+    
+  
+    Contributing
+  
+
+    
+  </span>
+  
+  
+
+      </a>
+    </li>
+  
+
+              
+            
+          </ul>
+        </nav>
+      
+    </li>
+  
+
+    
+  </ul>
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+            
+              
+              <div class="md-sidebar md-sidebar--secondary" data-md-component="sidebar" data-md-type="toc" >
+                <div class="md-sidebar__scrollwrap">
+                  <div class="md-sidebar__inner">
+                    
+
+<nav class="md-nav md-nav--secondary" aria-label="Table of contents">
+  
+  
+  
+    
+  
+  
+    <label class="md-nav__title" for="__toc">
+      <span class="md-nav__icon md-icon"></span>
+      Table of contents
+    </label>
+    <ul class="md-nav__list" data-md-component="toc" data-md-scrollfix>
+      
+        <li class="md-nav__item">
+  <a href="#how-agents-work" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        How Agents Work
+      
+    </span>
+  </a>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#development-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Development Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Development Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#frontend-specialist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Frontend Specialist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#backend-specialist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Backend Specialist
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#database-architect" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Database Architect
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#mobile-developer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Mobile Developer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#game-developer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Game Developer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#quality-testing-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Quality &amp; Testing Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Quality &amp; Testing Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#test-engineer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Test Engineer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#qa-automation-engineer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        QA Automation Engineer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#debugger" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Debugger
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#performance-optimizer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Performance Optimizer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#security-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Security Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#security-auditor" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Security Auditor
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#penetration-tester" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Penetration Tester
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#devops-infrastructure-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps &amp; Infrastructure Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="DevOps &amp; Infrastructure Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#devops-engineer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        DevOps Engineer
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#planning-documentation-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Planning &amp; Documentation Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Planning &amp; Documentation Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#project-planner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Project Planner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-manager" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product Manager
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#product-owner" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Product Owner
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#documentation-writer" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Documentation Writer
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#seo-specialist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        SEO Specialist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#exploration-analysis-agents" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Exploration &amp; Analysis Agents
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Exploration &amp; Analysis Agents">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#explorer-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Explorer Agent
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#code-archaeologist" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Code Archaeologist
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#orchestration-agent" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestration Agent
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Orchestration Agent">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#orchestrator" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Orchestrator
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+        <li class="md-nav__item">
+  <a href="#usage" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Usage
+      
+    </span>
+  </a>
+  
+    <nav class="md-nav" aria-label="Usage">
+      <ul class="md-nav__list">
+        
+          <li class="md-nav__item">
+  <a href="#selecting-agents-during-init" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Selecting Agents During Init
+      
+    </span>
+  </a>
+  
+</li>
+        
+          <li class="md-nav__item">
+  <a href="#agent-files-location" class="md-nav__link">
+    <span class="md-ellipsis">
+      
+        Agent Files Location
+      
+    </span>
+  </a>
+  
+</li>
+        
+      </ul>
+    </nav>
+  
+</li>
+      
+    </ul>
+  
+</nav>
+                  </div>
+                </div>
+              </div>
+            
+          
+          
+            <div class="md-content" data-md-component="content">
+              
+                
+
+
+
+  
+
+
+  <nav class="md-path" aria-label="Navigation" >
+    <ol class="md-path__list">
+      
+        
+  
+  
+    <li class="md-path__item">
+      <a href=".." class="md-path__link">
+        
+  <span class="md-ellipsis">
+    Home
+  </span>
+
+      </a>
+    </li>
+  
+
+      
+      
+        
+  
+  
+    
+    
+      <li class="md-path__item">
+        <a href="../commands/" class="md-path__link">
+          
+  <span class="md-ellipsis">
+    Reference
+  </span>
+
+        </a>
+      </li>
+    
+  
+
+      
+    </ol>
+  </nav>
+
+              
+              <article class="md-content__inner md-typeset">
+                
+                  
+
+
+  
+  
+
+
+<h1 id="agent-catalog">Agent Catalog</h1>
+<p>AGEN includes <strong>20 specialist agents</strong>, each with a unique persona, skill set, and behavioral patterns optimized for specific development tasks.</p>
+<h2 id="how-agents-work">How Agents Work</h2>
+<p>Each agent is defined as a Markdown file with YAML frontmatter containing:</p>
+<ul>
+<li><strong>name</strong>: Unique identifier</li>
+<li><strong>description</strong>: When to use this agent</li>
+<li><strong>skills</strong>: List of skills the agent uses</li>
+<li><strong>tools</strong>: Tools the agent can invoke</li>
+<li><strong>model</strong>: AI model configuration</li>
+</ul>
+<hr />
+<h2 id="development-agents">Development Agents</h2>
+<h3 id="frontend-specialist">Frontend Specialist</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>frontend-specialist</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>clean-code, nextjs-react-expert, web-design-guidelines, tailwind-patterns, frontend-design, lint-and-validate</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Senior Frontend Architect who builds maintainable React/Next.js systems with performance-first mindset. Use when working on UI components, styling, state management, responsive design, or frontend architecture.</p>
+<p><strong>Triggers</strong>: component, react, vue, ui, ux, css, tailwind, responsive</p>
+<hr />
+<h3 id="backend-specialist">Backend Specialist</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>backend-specialist</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>clean-code, api-patterns, nodejs-best-practices, database-design</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Expert in server-side development, API design, and database integration. Use for REST/GraphQL APIs, microservices, and backend architecture.</p>
+<p><strong>Triggers</strong>: api, server, endpoint, database, backend, node, express, fastify</p>
+<hr />
+<h3 id="database-architect">Database Architect</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>database-architect</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>database-design, clean-code</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Designs schemas, optimizes queries, and ensures data integrity. Expert in SQL, NoSQL, migrations, and data modeling.</p>
+<p><strong>Triggers</strong>: schema, sql, query, migration, database, postgres, mongodb</p>
+<hr />
+<h3 id="mobile-developer">Mobile Developer</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>mobile-developer</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>mobile-design, clean-code</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Specializes in iOS/Android development with Flutter, React Native, or native platforms. Focus on mobile UX patterns.</p>
+<p><strong>Triggers</strong>: mobile, ios, android, flutter, react native, swift, kotlin</p>
+<hr />
+<h3 id="game-developer">Game Developer</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>game-developer</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>game-development, clean-code</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Expert in game logic, physics engines, and graphics programming. Knowledgeable in Unity, Godot, and game design patterns.</p>
+<p><strong>Triggers</strong>: game, unity, godot, physics, sprite, player, level</p>
+<hr />
+<h2 id="quality-testing-agents">Quality &amp; Testing Agents</h2>
+<h3 id="test-engineer">Test Engineer</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>test-engineer</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>testing-patterns, tdd-workflow, clean-code</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>General purpose software testing and quality assurance. Writes unit tests, integration tests, and E2E tests.</p>
+<p><strong>Triggers</strong>: test, spec, coverage, jest, vitest, playwright, cypress</p>
+<hr />
+<h3 id="qa-automation-engineer">QA Automation Engineer</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>qa-automation-engineer</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>testing-patterns, webapp-testing</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Specializes in automated test suites, CI integration, and test infrastructure.</p>
+<p><strong>Triggers</strong>: automation, qa, selenium, ci, pipeline, test suite</p>
+<hr />
+<h3 id="debugger">Debugger</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>debugger</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>systematic-debugging, clean-code</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Expert at analyzing logs, stack traces, and fixing complex bugs. Systematic approach to root cause analysis.</p>
+<p><strong>Triggers</strong>: bug, error, crash, exception, trace, debug, fix</p>
+<hr />
+<h3 id="performance-optimizer">Performance Optimizer</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>performance-optimizer</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>performance-profiling, clean-code</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Profiles and optimizes application speed and resource usage. Uses Lighthouse, profilers, and performance metrics.</p>
+<p><strong>Triggers</strong>: performance, slow, optimize, lighthouse, bundle, memory, cpu</p>
+<hr />
+<h2 id="security-agents">Security Agents</h2>
+<h3 id="security-auditor">Security Auditor</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>security-auditor</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>vulnerability-scanner, clean-code</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Reviews code for security flaws, compliance issues, and vulnerabilities. Checks for OWASP Top 10 issues.</p>
+<p><strong>Triggers</strong>: security, vulnerability, audit, owasp, auth, encryption</p>
+<hr />
+<h3 id="penetration-tester">Penetration Tester</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>penetration-tester</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>red-team-tactics, vulnerability-scanner</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Active security testing and vulnerability assessment. Offensive security mindset.</p>
+<p><strong>Triggers</strong>: pentest, exploit, injection, xss, csrf, attack</p>
+<hr />
+<h2 id="devops-infrastructure-agents">DevOps &amp; Infrastructure Agents</h2>
+<h3 id="devops-engineer">DevOps Engineer</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>devops-engineer</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>deployment-procedures, server-management, bash-linux</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>CI/CD pipelines, infrastructure as code, and deployment automation. Docker, Kubernetes, cloud platforms.</p>
+<p><strong>Triggers</strong>: deploy, docker, kubernetes, ci, cd, pipeline, aws, gcp</p>
+<hr />
+<h2 id="planning-documentation-agents">Planning &amp; Documentation Agents</h2>
+<h3 id="project-planner">Project Planner</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>project-planner</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>plan-writing, brainstorming</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Task breakdown and estimation. Creates structured PLAN.md files with milestones and deliverables.</p>
+<p><strong>Triggers</strong>: plan, breakdown, milestone, estimate, roadmap, scope</p>
+<hr />
+<h3 id="product-manager">Product Manager</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>product-manager</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>brainstorming, plan-writing</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Requirements gathering and roadmap planning. Translates business needs to technical specs.</p>
+<p><strong>Triggers</strong>: requirements, feature, roadmap, stakeholder, mvp</p>
+<hr />
+<h3 id="product-owner">Product Owner</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>product-owner</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>brainstorming</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Write</td>
+</tr>
+</tbody>
+</table>
+<p>User story definition and backlog management. Prioritization and acceptance criteria.</p>
+<p><strong>Triggers</strong>: story, backlog, acceptance, sprint, priority</p>
+<hr />
+<h3 id="documentation-writer">Documentation Writer</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>documentation-writer</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>documentation-templates</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Creates clear, comprehensive technical documentation. README files, API docs, and guides.</p>
+<p><strong>Triggers</strong>: docs, readme, documentation, api docs, guide</p>
+<hr />
+<h3 id="seo-specialist">SEO Specialist</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>seo-specialist</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>seo-fundamentals, geo-fundamentals</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>Optimizes content and structure for search engines. Meta tags, schema markup, and rankings.</p>
+<p><strong>Triggers</strong>: seo, meta, sitemap, google, ranking, search</p>
+<hr />
+<h2 id="exploration-analysis-agents">Exploration &amp; Analysis Agents</h2>
+<h3 id="explorer-agent">Explorer Agent</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>explorer-agent</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>clean-code</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash</td>
+</tr>
+</tbody>
+</table>
+<p>Navigates new codebases and maps dependencies. First step for understanding unfamiliar projects.</p>
+<p><strong>Triggers</strong>: explore, understand, codebase, map, navigate, find</p>
+<hr />
+<h3 id="code-archaeologist">Code Archaeologist</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>code-archaeologist</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>clean-code</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob</td>
+</tr>
+</tbody>
+</table>
+<p>Specialist in reading, understanding, and documenting legacy code. Archaeological approach to code history.</p>
+<p><strong>Triggers</strong>: legacy, old, history, understand, document, archaeo</p>
+<hr />
+<h2 id="orchestration-agent">Orchestration Agent</h2>
+<h3 id="orchestrator">Orchestrator</h3>
+<table>
+<thead>
+<tr>
+<th>Property</th>
+<th>Value</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><strong>ID</strong></td>
+<td><code>orchestrator</code></td>
+</tr>
+<tr>
+<td><strong>Skills</strong></td>
+<td>intelligent-routing, parallel-agents</td>
+</tr>
+<tr>
+<td><strong>Tools</strong></td>
+<td>Read, Grep, Glob, Bash, Edit, Write</td>
+</tr>
+</tbody>
+</table>
+<p>High-level project management and task delegation. Coordinates multiple specialist agents for complex tasks.</p>
+<p><strong>Triggers</strong>: orchestrate, multi-agent, coordinate, delegate, complex</p>
+<hr />
+<h2 id="usage">Usage</h2>
+<h3 id="selecting-agents-during-init">Selecting Agents During Init</h3>
+<div class="language-bash highlight"><pre><span></span><code><span id="__span-0-1"><a id="__codelineno-0-1" name="__codelineno-0-1" href="#__codelineno-0-1"></a><span class="c1"># Install specific agents</span>
+</span><span id="__span-0-2"><a id="__codelineno-0-2" name="__codelineno-0-2" href="#__codelineno-0-2"></a>agen<span class="w"> </span>init<span class="w"> </span>--agents<span class="w"> </span>frontend-specialist,backend-specialist,test-engineer
+</span><span id="__span-0-3"><a id="__codelineno-0-3" name="__codelineno-0-3" href="#__codelineno-0-3"></a>
+</span><span id="__span-0-4"><a id="__codelineno-0-4" name="__codelineno-0-4" href="#__codelineno-0-4"></a><span class="c1"># Use the interactive wizard to select agents</span>
+</span><span id="__span-0-5"><a id="__codelineno-0-5" name="__codelineno-0-5" href="#__codelineno-0-5"></a>agen<span class="w"> </span>init
+</span></code></pre></div>
+<h3 id="agent-files-location">Agent Files Location</h3>
+<p>After installation, agents are located at:</p>
+<ul>
+<li><strong>Antigravity</strong>: <code>.agent/agents/&lt;agent-name&gt;.md</code></li>
+<li><strong>Cursor</strong>: Concatenated into <code>.cursorrules</code></li>
+<li><strong>Windsurf</strong>: Concatenated into <code>.windsurfrules</code></li>
+<li><strong>Zed</strong>: Copied to <code>.zed/prompts/</code></li>
+</ul>
+
+
+
+
+
+
+
+
+
+
+
+
+                
+              </article>
+            </div>
+          
+          
+<script>var target=document.getElementById(location.hash.slice(1));target&&target.name&&(target.checked=target.name.startsWith("__tabbed_"))</script>
+        </div>
+        
+          <button type="button" class="md-top md-icon" data-md-component="top" hidden>
+  
+  <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path d="M13 20h-2V8l-5.5 5.5-1.42-1.42L12 4.16l7.92 7.92-1.42 1.42L13 8z"/></svg>
+  Back to top
+</button>
+        
+      </main>
+      
+        <footer class="md-footer">
+  
+  <div class="md-footer-meta md-typeset">
+    <div class="md-footer-meta__inner md-grid">
+      <div class="md-copyright">
+  
+  
+    Made with
+    <a href="https://squidfunk.github.io/mkdocs-material/" target="_blank" rel="noopener">
+      Material for MkDocs
+    </a>
+  
+</div>
+      
+        
+<div class="md-social">
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://github.com/eshanized" target="_blank" rel="noopener" title="github.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M173.9 397.4c0 2-2.3 3.6-5.2 3.6-3.3.3-5.6-1.3-5.6-3.6 0-2 2.3-3.6 5.2-3.6 3-.3 5.6 1.3 5.6 3.6m-31.1-4.5c-.7 2 1.3 4.3 4.3 4.9 2.6 1 5.6 0 6.2-2s-1.3-4.3-4.3-5.2c-2.6-.7-5.5.3-6.2 2.3m44.2-1.7c-2.9.7-4.9 2.6-4.6 4.9.3 2 2.9 3.3 5.9 2.6 2.9-.7 4.9-2.6 4.6-4.6-.3-1.9-3-3.2-5.9-2.9M252.8 8C114.1 8 8 113.3 8 252c0 110.9 69.8 205.8 169.5 239.2 12.8 2.3 17.3-5.6 17.3-12.1 0-6.2-.3-40.4-.3-61.4 0 0-70 15-84.7-29.8 0 0-11.4-29.1-27.8-36.6 0 0-22.9-15.7 1.6-15.4 0 0 24.9 2 38.6 25.8 21.9 38.6 58.6 27.5 72.9 20.9 2.3-16 8.8-27.1 16-33.7-55.9-6.2-112.3-14.3-112.3-110.5 0-27.5 7.6-41.3 23.6-58.9-2.6-6.5-11.1-33.3 2.6-67.9 20.9-6.5 69 27 69 27 20-5.6 41.5-8.5 62.8-8.5s42.8 2.9 62.8 8.5c0 0 48.1-33.6 69-27 13.7 34.7 5.2 61.4 2.6 67.9 16 17.7 25.8 31.5 25.8 58.9 0 96.5-58.9 104.2-114.8 110.5 9.2 7.9 17 22.9 17 46.4 0 33.7-.3 75.4-.3 83.6 0 6.5 4.6 14.4 17.3 12.1C436.2 457.8 504 362.9 504 252 504 113.3 391.5 8 252.8 8M105.2 352.9c-1.3 1-1 3.3.7 5.2 1.6 1.6 3.9 2.3 5.2 1 1.3-1 1-3.3-.7-5.2-1.6-1.6-3.9-2.3-5.2-1m-10.8-8.1c-.7 1.3.3 2.9 2.3 3.9 1.6 1 3.6.7 4.3-.7.7-1.3-.3-2.9-2.3-3.9-2-.6-3.6-.3-4.3.7m32.4 35.6c-1.6 1.3-1 4.3 1.3 6.2 2.3 2.3 5.2 2.6 6.5 1 1.3-1.3.7-4.3-1.3-6.2-2.2-2.3-5.2-2.6-6.5-1m-11.4-14.7c-1.6 1-1.6 3.6 0 5.9s4.3 3.3 5.6 2.3c1.6-1.3 1.6-3.9 0-6.2-1.4-2.3-4-3.3-5.6-2"/></svg>
+    </a>
+  
+    
+    
+    
+    
+      
+      
+    
+    <a href="https://twitter.com/eshanized" target="_blank" rel="noopener" title="twitter.com" class="md-social__link">
+      <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 448 512"><!--! Font Awesome Free 7.1.0 by @fontawesome - https://fontawesome.com License - https://fontawesome.com/license/free (Icons: CC BY 4.0, Fonts: SIL OFL 1.1, Code: MIT License) Copyright 2025 Fonticons, Inc.--><path d="M357.2 48h70.6L273.6 224.2 455 464H313L201.7 318.6 74.5 464H3.8l164.9-188.5L-5.2 48h145.6l100.5 132.9zm-24.8 373.8h39.1L119.1 88h-42z"/></svg>
+    </a>
+  
+</div>
+      
+    </div>
+  </div>
+</footer>
+      
+    </div>
+    <div class="md-dialog" data-md-component="dialog">
+      <div class="md-dialog__inner md-typeset"></div>
+    </div>
+    
+    
+    
+      
+      
+      <script id="__config" type="application/json">{"annotate": null, "base": "..", "features": ["navigation.sections", "navigation.expand", "navigation.path", "navigation.top", "navigation.tracking", "navigation.instant", "search.suggest", "search.highlight", "content.code.copy", "content.code.annotate", "content.tooltips"], "search": "../assets/javascripts/workers/search.2c215733.min.js", "tags": null, "translations": {"clipboard.copied": "Copied to clipboard", "clipboard.copy": "Copy to clipboard", "search.result.more.one": "1 more on this page", "search.result.more.other": "# more on this page", "search.result.none": "No matching documents", "search.result.one": "1 matching document", "search.result.other": "# matching documents", "search.result.placeholder": "Type to start searching", "search.result.term.missing": "Missing", "select.version": "Select version"}, "version": null}</script>
+    
+    
+      <script src="../assets/javascripts/bundle.79ae519e.min.js"></script>
+      
+    
+  </body>
+</html>

@@ -1,0 +1,126 @@
+/* Dracula Theme Palette */
+:root {
+    /* Dracula Core Colors */
+    --dracula-bg: #282a36;
+    --dracula-current: #44475a;
+    --dracula-fg: #f8f8f2;
+    --dracula-comment: #6272a4;
+    --dracula-cyan: #8be9fd;
+    --dracula-green: #50fa7b;
+    --dracula-orange: #ffb86c;
+    --dracula-pink: #ff79c6;
+    --dracula-purple: #bd93f9;
+    --dracula-red: #ff5555;
+    --dracula-yellow: #f1fa8c;
+
+    /* Material for MkDocs Overrides */
+    --md-default-bg-color: var(--dracula-bg);
+    --md-default-fg-color: var(--dracula-fg);
+    --md-default-fg-color--light: var(--dracula-comment);
+
+    --md-code-bg-color: var(--dracula-current);
+    --md-code-fg-color: var(--dracula-fg);
+
+    --md-primary-fg-color: var(--dracula-purple);
+    --md-primary-fg-color--light: var(--dracula-pink);
+    --md-primary-fg-color--dark: #6c5c96;
+    /* Darker purple */
+
+    --md-accent-fg-color: var(--dracula-pink);
+}
+
+/* Glassmorphism Header (Dracula Style) */
+.md-header {
+    background-color: rgba(40, 42, 54, 0.85) !important;
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border-bottom: 1px solid var(--dracula-comment);
+}
+
+/* Glassmorphism Sidebar */
+@media screen and (min-width: 76.25em) {
+    .md-sidebar {
+        background-color: transparent;
+    }
+}
+
+/* Typography */
+body,
+input {
+    font-family: 'Fira Code', 'Inter', -apple-system, BlinkMacSystemFont, Helvetica, Arial, sans-serif;
+}
+
+code,
+kbd,
+pre {
+    font-family: 'Fira Code', 'JetBrains Mono', Consolas, monospace;
+}
+
+/* Hero Section / Landing Page */
+/* Hero Section / Landing Page */
+.md-typeset h1 {
+    font-weight: 800;
+    background: -webkit-linear-gradient(45deg, var(--dracula-purple), var(--dracula-cyan));
+    -webkit-background-clip: text;
+    background-clip: text;
+    -webkit-text-fill-color: transparent;
+    margin-bottom: 1rem;
+}
+
+/* Buttons */
+.md-button {
+    border-radius: 8px;
+    font-weight: 600;
+    transition: all 0.3s ease;
+}
+
+.md-button--primary {
+    background: linear-gradient(90deg, var(--dracula-purple), var(--dracula-pink)) !important;
+    border: none !important;
+    color: var(--dracula-bg) !important;
+    box-shadow: 0 4px 15px rgba(189, 147, 249, 0.4);
+}
+
+.md-button--primary:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 8px 25px rgba(255, 121, 198, 0.5);
+}
+
+/* Card Styling (Admonitions & Content) */
+.md-typeset .admonition,
+.md-typeset details {
+    border: 1px solid var(--dracula-comment) !important;
+    border-radius: 12px;
+    background: rgba(40, 42, 54, 0.6);
+    box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.2);
+}
+
+/* Logo Animation */
+.md-header__button.md-logo img,
+.md-header__button.md-logo svg {
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+.md-header__button.md-logo:hover img,
+.md-header__button.md-logo:hover svg {
+    transform: rotate(180deg) scale(1.1);
+}
+
+/* Scrollbars */
+::-webkit-scrollbar {
+    width: 8px;
+    height: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgba(255, 255, 255, 0.2);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgba(255, 255, 255, 0.4);
+}
